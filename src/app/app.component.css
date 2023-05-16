@@ -1,0 +1,25 @@
+.user-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 40px;
+  }
+
+
+.character-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .character-summary {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    padding: 20px;
+    overflow-y: auto;
+    font-size: 20px;
+  }
