@@ -1,115 +1,124 @@
 <div class="container">
-  <h1>Anime Character Concept Generator</h1>
-  <form class="user-inputs">
-    <div class="form-group">
-      <label for="isconcepts">Choose between Full Art and Concept Art  </label>
-      <select id="isconcept" name="isconcept" class="form-control" [(ngModel)]="isconcept">
-        <option value="1">Full Art </option>
-        <option value="0">Concept Art </option>
-      </select>
-    </div>
-    <div class="form-group">
-      <form autocomplete="off">
-      <label for="species">Species: </label>
-      <input type="text" [(ngModel)]="species" name="species" class="form-control" placeholder="Enter Species">
+  <div class="content-container">
+    <div class="left-column">
+      <h3>Anime Character Concept Generator</h3>
+      <form class="user-inputs">
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="isconcepts">Choose between Full Art ......</label>
+            <select id="isconcept" name="isconcept" class="form-control" [(ngModel)]="isconcept">
+              <option value="1">Full Art </option>
+              <option value="0">Concept Art </option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="species">Species: </label>
+            <input type="text" [(ngModel)]="species" name="species" class="form-control" placeholder="Enter Species">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="sex">Sex/Gender: </label>
+            <input type="text" [(ngModel)]="sex" name="sex" class="form-control" placeholder="Enter Sex/Gender">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="age">Age: </label>
+            <input type="text" [(ngModel)]="age" name="age" class="form-control" placeholder="Enter Age">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="physicalShape">Physical Shape: </label>
+            <input type="text" [(ngModel)]="physicalShape" name="physicalShape" class="form-control" placeholder="Enter Physical Shape">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="hair-color">Hair Color: </label>
+            <input type="text" [(ngModel)]="hairColor" name="hairColor" class="form-control" placeholder="Enter Hair Color">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="eyes">Eye Details: </label>
+            <input type="text" [(ngModel)]="eyes" name="eyes" class="form-control" placeholder="Enter Eye details">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="main-colors">Main Colors: </label>
+            <input type="text" [(ngModel)]="mainColors" name="main-colors" class="form-control" placeholder="Enter Main Colors">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="deformation">Deformation/Mark: </label>
+            <input type="text" [(ngModel)]="deformation" name="deformation" class="form-control" placeholder="Enter Deformation/Mark">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="skillsPowers">Skills/Powers: </label>
+            <input type="text" [(ngModel)]="skillsPowers" name="skillsPowers" class="form-control" placeholder="Enter Skills/Powers">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="clothing">Clothing: </label>
+            <input type="text" [(ngModel)]="clothing" name="clothing" class="form-control" placeholder="Enter Clothing">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="contextUniverse">Context/Universe: </label>
+            <input type="text" [(ngModel)]="contextUniverse" name="contextUniverse" class="form-control" placeholder="Enter Context/Universe">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="social-context">Social/Context: </label>
+            <input type="text" [(ngModel)]="socialContext" name="social-context" class="form-control" placeholder="Enter Social/Context">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="occupationProfession">Occupation/Profession: </label>
+            <input type="text" [(ngModel)]="occupationProfession" name="occupationProfession" class="form-control" placeholder="Enter Occupation/Profession">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="ethnicity">Ethnicity: </label>
+            <input type="text" [(ngModel)]="ethnicity" name="ethnicity" class="form-control" placeholder="Enter Ethnicity">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="personality-traits">Personality Traits: </label>
+            <input type="text" [(ngModel)]="personalityTraits" name="personality-traits" class="form-control" placeholder="Enter Personality Traits">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="art-style">Artstyle / Art Inspiration: </label>
+            <input type="text" [(ngModel)]="artstyleInspiration" name="artstyleInspiration" class="form-control" placeholder="Enter Artstyle / Art Inspiration details">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="extras">Extras: </label>
+            <input type="text" [(ngModel)]="extras" name="extras" class="form-control" placeholder="Enter extra details">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="generateImage()">Generate Character!</button>
       </form>
     </div>
-    <div class="form-group">
-      <form autocomplete="off">
-      <label for="sex">Sex/Gender: </label>
-      <input type="text" [(ngModel)]="sex" name="sex" class="form-control" placeholder="Enter Sex/Gender">
-      </form>
+  <div class="right-column">
+    <div class="prompt-image-container">
+      <img [src]="image" *ngIf="image" class="prompt-image" alt="Generated image 1">
+      <div *ngIf="prompts">
+        <h3>Image and Prompt 1:</h3>
+        <p>{{ prompts[0] }}</p>
+      </div>
     </div>
-    <div class="form-group">
-      <form autocomplete="off">
-      <label for="age">Age: </label>
-      <input type="text" [(ngModel)]="age" name="age" class="form-control" placeholder="Enter Age">
-      </form>
+    <div class="prompt-image-container">
+      <img [src]="image2" *ngIf="image2" class="prompt-image" alt="Generated image 2">
+      <div *ngIf="prompts">
+        <h3>Image and Prompt 2:</h3>
+        <p>{{ prompts[1] }}</p>
+      </div>
     </div>
-    <div class="form-group">
-      <form autocomplete="off">
-      <label for="physicalShape">Physical Shape: </label>
-      <input type="text" [(ngModel)]="physicalShape" name="physicalShape" class="form-control" placeholder="Enter Physical Shape">
-      </form>
-    </div>
-    <div class="form-group">
-      <label for="hair-color">Hair Color: </label>
-      <input type="text" [(ngModel)]="hairColor" name="hairColor" class="form-control" placeholder="Enter Hair Color">
-    </div>
-    <div class="form-group">
-      <label for="eyes">Eye Details: </label>
-      <input type="text" [(ngModel)]="eyes" name="eyes" class="form-control" placeholder="Enter Eye details">
-    </div>
-    <div class="form-group">
-      <label for="main-colors">Main Colors: </label>
-      <input type="text" [(ngModel)]="mainColors" name="main-colors" class="form-control" placeholder="Enter Main Colors">
-    </div>
-    <div class="form-group">
-      <label for="deformation">Deformation/Mark: </label>
-      <input type="text" [(ngModel)]="deformation" name="deformation" class="form-control" placeholder="Enter Deformation/Mark">
-    </div>
-    <div class="form-group">
-      <label for="skillsPowers">Skills/Powers: </label>
-      <input type="text" [(ngModel)]="skillsPowers" name="skillsPowers" class="form-control" placeholder="Enter Skills/Powers">
-    </div>
-    <div class="form-group">
-      <form autocomplete="off">
-      <label for="clothing">Clothing: </label>
-      <input type="text" [(ngModel)]="clothing" name="clothing" class="form-control" placeholder="Enter Clothing">
-      </form>
-    </div>
-    <div class="form-group">
-      <label for="contextUniverse">Context/Universe: </label>
-      <input type="text" [(ngModel)]="contextUniverse" name="contextUniverse" class="form-control" placeholder="Enter Context/Universe">
-    </div>
-    <div class="form-group">
-      <label for="social-context">Social/Context: </label>
-      <input type="text" [(ngModel)]="socialContext" name="social-context" class="form-control" placeholder="Enter Social/Context">
-    </div>
-    <div class="form-group">
-      <label for="occupationProfession">Occupation/Profession: </label>
-      <input type="text" [(ngModel)]="occupationProfession" name="occupationProfession" class="form-control" placeholder="Enter Occupation/Profession">
-    </div>
-    <div class="form-group">
-      <label for="ethnicity">Ethnicity: </label>
-      <input type="text" [(ngModel)]="ethnicity" name="ethnicity" class="form-control" placeholder="Enter Ethnicity">
-    </div>
-    <div class="form-group">
-      <label for="personality-traits">Personality Traits: </label>
-      <input type="text" [(ngModel)]="personalityTraits" name="personality-traits" class="form-control" placeholder="Enter Personality Traits">
-    </div>
-    <div class="form-group">
-      <label for="art-style">Artstyle / Art Inspiration: </label>
-      <input type="text" [(ngModel)]="artstyleInspiration" name="artstyleInspiration" class="form-control" placeholder="Enter Artstyle / Art Inspiration details">
-    </div>
-    <div class="form-group">
-      <form autocomplete="off">
-      <label for="extras">Extras: </label>
-      <input type="text" [(ngModel)]="extras" name="extras" class="form-control" placeholder="Enter extra details">
-      </form>
-    </div>
-  </form>
-    <!-- Repeat the above two divs for each category -->
 
-  <button type="submit" class="btn btn-primary" (click)="generateImage()">Generate Character!</button>
-      <div class="prompt-image-container">
-        <img [src]="image" *ngIf="image" class="prompt-image" alt="Generated image 1">
-        <div *ngIf="prompts">
-          <h3>Image and Prompt 1:</h3>
-          <p>{{ prompts[0] }}</p>
-        </div>
-      </div>
-      <div class="prompt-image-container">
-        <img [src]="image2" *ngIf="image2" class="prompt-image" alt="Generated image 2">
-        <div *ngIf="prompts">
-          <h3>Image and Prompt 2:</h3>
-          <p>{{ prompts[1] }}</p>
-        </div>
-      </div>
-    
     <div class="character-summary">
       <div *ngIf="prompts">
           <h3>Character Summary:</h3>
           <p>{{ prompts[2] }}</p>
         </div>
     </div>
+</div>

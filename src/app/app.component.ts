@@ -41,8 +41,8 @@ export class AppComponent {
       .subscribe(res => {
         this.image = 'data:image/png;base64,' + res.image;
         this.image2 = 'data:image/png;base64,' + res.image2;
-        console.log(res.prompts); // add this line
-        this.prompts = res.prompts; // add this line
+        console.log(res.prompts); 
+        this.prompts = res.prompts; 
       }, err => {
         console.log(err);
       });
