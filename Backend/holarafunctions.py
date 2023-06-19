@@ -2,7 +2,7 @@ import requests
 import json
 import base64
 
-API_KEY = 'secret-5fb2531d-7079-408a-889b-5cc5df2c538a'
+API_KEY = ' '
 url = 'https://holara.ai/holara/api/external/1.0/generate_image'
 
 def execute_holara(textprompt):
